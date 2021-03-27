@@ -2,30 +2,30 @@ import React, { useState } from "react";
 import {
   Masonry,
   Item,
-  items,
-  ColumnCountCtx,
-  defaultColumuCount
+  ViewportCtx,
+  defaultViewport
 } from "./components/masonry";
+import { items } from "./components/utils";
 
 import "./styles.css";
 
-const columnCounts = [1, 2, 3];
+const viewports = ["small", "medium", "large"];
 
 export default function App() {
-  const [count, setCount] = useState(defaultColumuCount);
+  const [viewport, setViewport] = useState(defaultViewport);
   const chooseCount = (e) => {
-    setCount(parseInt(e.target.value, 10));
+    setViewport(e.target.value);
   };
   return (
     <div className="App">
-      <ColumnCountCtx value={count}>
+      <ViewportCtx.Provider value={viewport}>
         <h1>Hello Masonry</h1>
         <div>
-          <h2>Choose a columnCount</h2>
-          {columnCounts.map((c) => (
+          <h2>Choose a viewport</h2>
+          {viewports.map((c) => (
             <div>
               <input
-                defaultChecked={c === count}
+                defaultChecked={c === viewport}
                 onChange={chooseCount}
                 type="radio"
                 name="columnCount"
@@ -36,14 +36,14 @@ export default function App() {
           ))}
         </div>
         <h2>Result</h2>
-        <Masonry columnCount={count}>
+        <Masonry>
           {items.map((item, idx) => (
             <Item key={idx} {...item}>
               {idx}
             </Item>
           ))}
         </Masonry>
-      </ColumnCountCtx>
+      </ViewportCtx.Provider>
     </div>
   );
 }
