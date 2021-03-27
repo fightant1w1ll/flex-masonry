@@ -18,7 +18,7 @@ export default function App() {
   };
   return (
     <div className="App">
-      <ColumnCountCtx value={count}>
+      <ColumnCountCtx.Provider value={count}>
         <h1>Hello Masonry</h1>
         <div>
           <h2>Choose a columnCount</h2>
@@ -43,7 +43,7 @@ export default function App() {
             </Item>
           ))}
         </Masonry>
-      </ColumnCountCtx>
+      </ColumnCountCtx.Provider>
     </div>
   );
 }
