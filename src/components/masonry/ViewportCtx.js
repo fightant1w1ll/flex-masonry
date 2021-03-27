@@ -1,5 +1,5 @@
 import React from "react";
 
-export const defaultViewport = "small";
+export const defaultViewport = "medium";
 
 export const ViewportCtx = React.createContext(defaultViewport);
