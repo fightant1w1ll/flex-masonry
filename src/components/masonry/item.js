@@ -10,7 +10,7 @@ const Item = ({ children, width, height, order, style, sizes }) => {
   return (
     <div
       className="item"
-      style={{ width, height, order, ...style, flex: `0 0 ${currentSize}%` }}
+      style={{ width, height, order, flex: `0 0 ${currentSize}%`, ...style,  }}
     >
       <div className="item-content">{children}</div>
     </div>
@@ -18,3 +18,11 @@ const Item = ({ children, width, height, order, style, sizes }) => {
 };
 
 export { Item };
+/**
+ *  1. use row direction flex, to figure out size of each item
+ *  2. 
+ * 
+ * 
+ * 
+ * 
+ *  */
