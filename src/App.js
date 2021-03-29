@@ -9,7 +9,7 @@ import { items } from "./components/utils";
 
 import "./styles.css";
 
-const viewports = ["small", "medium", "large"];
+const viewports = ["small", "medium", "large", "xlarge"];
 
 export default function App() {
     const [viewport, setViewport] = useState(defaultViewport);
